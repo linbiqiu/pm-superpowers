@@ -103,9 +103,17 @@ codex plugin add pm-superpowers@pm-superpowers-internal
 3. 运行插件校验。
 4. 运行所有技能校验。
 5. 更新 `plugins/pm-superpowers/.codex-plugin/plugin.json` 的版本号。
-6. 提交到内部仓库。
-7. 通知团队更新插件。
-8. 团队成员重新安装或更新后，新开一个 Codex thread 使用。
+6. 更新 `CHANGELOG.md`。
+7. 提交到内部仓库。
+8. 通知团队更新插件。
+9. 团队成员重新安装或更新后，新开一个 Codex thread 使用。
+
+团队成员可使用一键脚本更新：
+
+```bash
+scripts/check_pm_superpowers_update.sh
+scripts/update_pm_superpowers.sh
+```
 
 ## 更新底层 68 个 PM 方法技能
 
@@ -154,7 +162,7 @@ done
 - `1.0.0`：团队正式采用，流程稳定。
 - `2.0.0`：产物结构或工作流有破坏性变化。
 
-当前已进入 `0.4.3` 试点版本。`0.4.0` 重点把 68 个 PM 方法技能内置到插件包内，让团队成员只安装 PM Superpowers 即可使用完整产品工作流；`0.4.1` 补充了用户下载安装和首次使用指南，并整理了文档目录说明；`0.4.2` 修正了 GitHub 文档中的本机绝对路径；`0.4.3` 将 PRD 模板升级为自适应结构。
+当前已进入 `0.4.4` 试点版本。`0.4.0` 重点把 68 个 PM 方法技能内置到插件包内，让团队成员只安装 PM Superpowers 即可使用完整产品工作流；`0.4.1` 补充了用户下载安装和首次使用指南，并整理了文档目录说明；`0.4.2` 修正了 GitHub 文档中的本机绝对路径；`0.4.3` 将 PRD 模板升级为自适应结构；`0.4.4` 新增版本检查和一键更新机制。
 
 ## 试点建议
 
@@ -197,4 +205,19 @@ PM Superpowers 是我们的产品工作流插件。
 它不会替代大家的判断，而是把高频产品场景、标准产物、门禁和交接要求固化下来。
 新同事可以按场景学习，老同事可以用它统一输出标准。
 68 个 PM 方法技能已经内置在插件里，大家只需要安装 PM Superpowers 一个插件。
+```
+
+## 版本更新通知模板
+
+```text
+PM Superpowers 已更新到 x.y.z。
+
+主要变化：
+- ...
+- ...
+
+更新方式：
+scripts/update_pm_superpowers.sh
+
+更新后请新开 Codex thread。
 ```

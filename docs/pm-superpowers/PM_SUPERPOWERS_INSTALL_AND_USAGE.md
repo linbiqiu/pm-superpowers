@@ -94,6 +94,15 @@ codex plugin add pm-superpowers@pm-superpowers-internal
 
 ## 更新插件
 
+推荐使用一键更新脚本：
+
+```bash
+scripts/check_pm_superpowers_update.sh
+scripts/update_pm_superpowers.sh
+```
+
+更新完成后请新开一个 Codex thread。
+
 如果你是从 GitHub marketplace 安装的：
 
 ```bash
@@ -110,6 +119,10 @@ codex plugin add pm-superpowers@pm-superpowers-internal
 ```
 
 更新后请新开一个 Codex thread。
+
+更详细的版本检查和更新说明见：
+
+- [PM_SUPERPOWERS_UPDATE_GUIDE.md](PM_SUPERPOWERS_UPDATE_GUIDE.md)
 
 ## 第一次怎么用
 

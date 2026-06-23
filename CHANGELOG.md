@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.4.4
+
+- 新增 `scripts/check_pm_superpowers_update.sh`，支持检查本地安装版本和 GitHub 远程版本。
+- 新增 `scripts/update_pm_superpowers.sh`，封装 marketplace 刷新和插件重装流程。
+- 新增 `PM_SUPERPOWERS_UPDATE_GUIDE.md`，说明版本检查、更新方式、团队通知和新 thread 生效规则。
+- 更新 README、安装指南和发版指南，补充一键更新入口。
+
 ## 0.4.3
 
 - 将 PRD 模板改为自适应结构，先选择 PRD 类型，再填写适用模块。

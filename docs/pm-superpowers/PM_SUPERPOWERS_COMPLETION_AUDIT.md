@@ -12,6 +12,8 @@
 
 2026-06-23 四次更新：PM Superpowers 从 `0.4.2` 升级到 `0.4.3`，将 PRD 模板从单一固定结构升级为自适应模块结构。
 
+2026-06-23 五次更新：PM Superpowers 从 `0.4.3` 升级到 `0.4.4`，新增版本检查脚本、更新脚本和更新指南。
+
 ## 目标拆解
 
 本轮目标来自完整产品工作流插件建设要求，包含：
@@ -166,6 +168,7 @@ docs/pm-superpowers
 
 - `PM_SUPERPOWERS_USER_GUIDE.md`：面向 PM 的十个场景化使用手册。
 - `PM_SUPERPOWERS_INSTALL_AND_USAGE.md`：面向用户的下载、安装、更新和首次使用指南。
+- `PM_SUPERPOWERS_UPDATE_GUIDE.md`：版本检查、插件更新和团队通知指南。
 - `PM_SUPERPOWERS_SCENARIO_DEEP_DIVE.md`：十个高频场景的深度讲解、门禁、工作流和落地训练说明。
 - `PM_SUPERPOWERS_PLUGIN_DESIGN.md`：插件设计理念、架构、门禁和下游串联说明。
 - `PM_SUPERPOWERS_SKILL_MANUAL.md`：18 个场景/治理技能和 68 个内置 PM method skills 的关系说明。
@@ -220,7 +223,7 @@ codex plugin list
 - 86 个技能全部通过 `quick_validate`。
 - 68 个 PM method skills 已随 PM Superpowers 插件内置；团队用户不再需要单独安装外部 `pm-skills` 插件集。
 - `pm-superpowers@pm-superpowers-internal` 处于 installed/enabled。
-- 插件版本为 `0.4.3`。
+- 插件版本为 `0.4.4`。
 
 ## 内部发版方式
 

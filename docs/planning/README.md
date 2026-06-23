@@ -5,6 +5,7 @@
 这些文件有历史价值，但不一定代表当前插件的最终实现。当前实现已经以 `docs/pm-superpowers/` 下的正式文档为准，尤其是：
 
 - `PM_SUPERPOWERS_INSTALL_AND_USAGE.md`
+- `PM_SUPERPOWERS_UPDATE_GUIDE.md`
 - `PM_SUPERPOWERS_USER_GUIDE.md`
 - `PM_SUPERPOWERS_SCENARIO_DEEP_DIVE.md`
 - `PM_SUPERPOWERS_PLUGIN_DESIGN.md`
