@@ -1,0 +1,20 @@
+{
+  "name": "pm-superpowers-internal",
+  "interface": {
+    "displayName": "PM Superpowers Internal"
+  },
+  "plugins": [
+    {
+      "name": "pm-superpowers",
+      "source": {
+        "source": "local",
+        "path": "./plugins/pm-superpowers"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

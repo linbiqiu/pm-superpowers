@@ -1,0 +1,17 @@
+.DS_Store
+**/.DS_Store
+
+# Local Codex skill installs and cache-like workspace state.
+.codex/
+
+# Local editor and OS files.
+.idea/
+.vscode/
+*.swp
+*.tmp
+
+# Logs and temporary output.
+*.log
+tmp/
+dist/
+build/
