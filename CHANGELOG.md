@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.4.5
+
+- 修复版本检查脚本，改用 GitHub API 读取远程 `plugin.json`，避免 `raw.githubusercontent.com` CDN 缓存导致版本识别滞后。
+
 ## 0.4.4
 
 - 新增 `scripts/check_pm_superpowers_update.sh`，支持检查本地安装版本和 GitHub 远程版本。

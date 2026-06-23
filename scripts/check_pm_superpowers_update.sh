@@ -6,17 +6,25 @@ REF="${PM_SUPERPOWERS_REF:-main}"
 PLUGIN="${PM_SUPERPOWERS_PLUGIN:-pm-superpowers}"
 MARKETPLACE="${PM_SUPERPOWERS_MARKETPLACE:-pm-superpowers-internal}"
 
-RAW_URL="https://raw.githubusercontent.com/${REPO}/${REF}/plugins/pm-superpowers/.codex-plugin/plugin.json"
-
 remote_version="$(
-  python3 - "$RAW_URL" <<'PY'
+  python3 - "$REPO" "$REF" <<'PY'
+import base64
 import json
 import sys
 import urllib.request
 
-url = sys.argv[1]
+repo = sys.argv[1]
+ref = sys.argv[2]
+
+repo = repo.removeprefix("https://github.com/")
+repo = repo.removesuffix(".git")
+path = "plugins/pm-superpowers/.codex-plugin/plugin.json"
+url = f"https://api.github.com/repos/{repo}/contents/{path}?ref={ref}"
+
 with urllib.request.urlopen(url, timeout=20) as response:
-    data = json.load(response)
+    payload = json.load(response)
+content = base64.b64decode(payload["content"])
+data = json.loads(content)
 print(data["version"])
 PY
 )"
