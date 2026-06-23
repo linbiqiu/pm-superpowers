@@ -22,6 +22,8 @@
 
 先说明一点：PM Superpowers 已经放在 GitHub 上，但 Codex 不会自动搜索整个 GitHub。大家不用自己去搜索插件，直接复制下面的安装命令即可。
 
+插件 Git 地址：`https://github.com/linbiqiu/pm-superpowers`
+
 ### 第一步：确认 Codex 可用
 
 打开终端，执行：
