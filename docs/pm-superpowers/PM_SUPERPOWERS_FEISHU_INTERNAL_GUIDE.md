@@ -20,6 +20,8 @@
 
 ## 先安装并确认可用
 
+先说明一点：PM Superpowers 已经放在 GitHub 上，但 Codex 不会自动搜索整个 GitHub。大家不用自己去搜索插件，直接复制下面的安装命令即可。
+
 ### 第一步：确认 Codex 可用
 
 打开终端，执行：
@@ -33,7 +35,7 @@ codex plugin --help
 
 ### 第二步：安装 PM Superpowers
 
-复制执行：
+复制执行下面两行。第一行是告诉 Codex 去 GitHub 上读取我们的 PM Superpowers 仓库，第二行是安装插件。
 
 ```bash
 codex plugin marketplace add linbiqiu/pm-superpowers --ref main
