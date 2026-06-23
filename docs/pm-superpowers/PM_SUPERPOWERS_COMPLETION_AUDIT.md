@@ -10,6 +10,8 @@
 
 2026-06-23 三次更新：PM Superpowers 从 `0.4.1` 升级到 `0.4.2`，修正文档中写死的本机绝对路径，改为仓库相对路径、`<repo-root>` 或 `${CODEX_HOME:-$HOME/.codex}`。
 
+2026-06-23 四次更新：PM Superpowers 从 `0.4.2` 升级到 `0.4.3`，将 PRD 模板从单一固定结构升级为自适应模块结构。
+
 ## 目标拆解
 
 本轮目标来自完整产品工作流插件建设要求，包含：
@@ -218,7 +220,7 @@ codex plugin list
 - 86 个技能全部通过 `quick_validate`。
 - 68 个 PM method skills 已随 PM Superpowers 插件内置；团队用户不再需要单独安装外部 `pm-skills` 插件集。
 - `pm-superpowers@pm-superpowers-internal` 处于 installed/enabled。
-- 插件版本为 `0.4.2`。
+- 插件版本为 `0.4.3`。
 
 ## 内部发版方式
 

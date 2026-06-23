@@ -5,7 +5,7 @@ description: "Use when drafting, rewriting, reviewing, or standardizing a PRD, f
 
 # PRD Standardization
 
-Create or review PRDs with consistent structure and gates.
+Create or review PRDs with adaptive structure and gates. Do not force every request into one full PRD shape.
 
 ## Required References
 
@@ -18,12 +18,14 @@ Use available method skills when useful: `create-prd`, `job-stories`, `user-stor
 ## Workflow
 
 1. Confirm the PRD consumer and decision stage.
-2. Check problem, user, evidence, scope, metrics, dependencies, and risks.
-3. Draft or rewrite the PRD using the standard template.
-4. Create user stories or job stories.
-5. Define acceptance criteria and edge cases.
-6. Run `pm-gate-review`.
-7. Run `downstream-readiness` if the PRD is intended for UI or engineering.
+2. Select the PRD type before drafting: lightweight requirement, standard feature PRD, UI/experience PRD, backend/API/data PRD, optimization/experiment PRD, or launch/operations PRD.
+3. Check problem, user or affected role, evidence, scope, metrics, dependencies, risks, and intended downstream consumer.
+4. Draft or rewrite the PRD using only the applicable modules in `../../assets/templates/prd.md`.
+5. Mark non-applicable modules as "本次不适用" with a short reason instead of inventing content.
+6. Create user stories, job stories, or system scenarios only when they fit the PRD type.
+7. Define acceptance criteria and edge cases appropriate to the PRD type.
+8. Run `pm-gate-review`.
+9. Run `downstream-readiness` only if the PRD is intended for UI or engineering handoff.
 
 ## Artifacts
 
@@ -36,4 +38,6 @@ Use:
 
 ## Block Conditions
 
-Block when the request asks for an engineering-ready PRD but scope, acceptance criteria, or target user is missing.
+Block when the request asks for an engineering-ready PRD but scope, acceptance criteria, or target user / affected role is missing.
+
+Do not block merely because a module is not applicable. For example, backend-only, configuration, data, or operations PRDs may not need UI states; lightweight copy changes may not need experiment design. Record the non-applicability and continue if the core decision, scope, and acceptance criteria are clear.
