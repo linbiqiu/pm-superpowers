@@ -61,7 +61,7 @@ plugins/pm-superpowers/
 默认同步来源是仓库内的：
 
 ```text
-/Users/linbiqiu/Documents/product/.codex/skills
+<repo-root>/.codex/skills
 ```
 
 更新步骤：

@@ -8,6 +8,8 @@
 
 2026-06-23 二次更新：PM Superpowers 从 `0.4.0` 升级到 `0.4.1`，补充用户下载安装和使用指南，并为 `docs/`、`docs/planning/` 增加目录说明。
 
+2026-06-23 三次更新：PM Superpowers 从 `0.4.1` 升级到 `0.4.2`，修正文档中写死的本机绝对路径，改为仓库相对路径、`<repo-root>` 或 `${CODEX_HOME:-$HOME/.codex}`。
+
 ## 目标拆解
 
 本轮目标来自完整产品工作流插件建设要求，包含：
@@ -31,7 +33,7 @@
 位置：
 
 ```text
-/Users/linbiqiu/Documents/product/.codex/skills
+<repo-root>/.codex/skills
 ```
 
 数量：68 个。
@@ -49,19 +51,19 @@
 位置：
 
 ```text
-/Users/linbiqiu/Documents/product/plugins/pm-superpowers
+plugins/pm-superpowers
 ```
 
 Manifest：
 
 ```text
-/Users/linbiqiu/Documents/product/plugins/pm-superpowers/.codex-plugin/plugin.json
+plugins/pm-superpowers/.codex-plugin/plugin.json
 ```
 
 Marketplace：
 
 ```text
-/Users/linbiqiu/Documents/product/.agents/plugins/marketplace.json
+.agents/plugins/marketplace.json
 ```
 
 Marketplace 名称：
@@ -155,7 +157,7 @@ pm-superpowers
 位置：
 
 ```text
-/Users/linbiqiu/Documents/product/docs/pm-superpowers
+docs/pm-superpowers
 ```
 
 文档：
@@ -193,14 +195,14 @@ pm-superpowers
 插件校验：
 
 ```bash
-python3 /Users/linbiqiu/.codex/skills/.system/plugin-creator/scripts/validate_plugin.py /Users/linbiqiu/Documents/product/plugins/pm-superpowers
+python3 "${CODEX_HOME:-$HOME/.codex}/skills/.system/plugin-creator/scripts/validate_plugin.py" plugins/pm-superpowers
 ```
 
 技能校验：
 
 ```bash
-for d in /Users/linbiqiu/Documents/product/plugins/pm-superpowers/skills/*; do
-  python3 /Users/linbiqiu/.codex/skills/.system/skill-creator/scripts/quick_validate.py "$d"
+for d in plugins/pm-superpowers/skills/*; do
+  python3 "${CODEX_HOME:-$HOME/.codex}/skills/.system/skill-creator/scripts/quick_validate.py" "$d"
 done
 ```
 
@@ -216,14 +218,14 @@ codex plugin list
 - 86 个技能全部通过 `quick_validate`。
 - 68 个 PM method skills 已随 PM Superpowers 插件内置；团队用户不再需要单独安装外部 `pm-skills` 插件集。
 - `pm-superpowers@pm-superpowers-internal` 处于 installed/enabled。
-- 插件版本为 `0.4.1`。
+- 插件版本为 `0.4.2`。
 
 ## 内部发版方式
 
 本地试点：
 
 ```bash
-codex plugin marketplace add /Users/linbiqiu/Documents/product
+codex plugin marketplace add <repo-root>
 codex plugin add pm-superpowers@pm-superpowers-internal
 ```
 

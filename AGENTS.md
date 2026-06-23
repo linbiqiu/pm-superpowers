@@ -32,12 +32,12 @@
 ## 校验命令
 
 ```bash
-python3 /Users/linbiqiu/.codex/skills/.system/plugin-creator/scripts/validate_plugin.py /Users/linbiqiu/Documents/product/plugins/pm-superpowers
+python3 "${CODEX_HOME:-$HOME/.codex}/skills/.system/plugin-creator/scripts/validate_plugin.py" plugins/pm-superpowers
 ```
 
 ```bash
-for d in /Users/linbiqiu/Documents/product/plugins/pm-superpowers/skills/*; do
-  python3 /Users/linbiqiu/.codex/skills/.system/skill-creator/scripts/quick_validate.py "$d"
+for d in plugins/pm-superpowers/skills/*; do
+  python3 "${CODEX_HOME:-$HOME/.codex}/skills/.system/skill-creator/scripts/quick_validate.py" "$d"
 done
 ```
 
@@ -47,7 +47,7 @@ done
 - Minor：新增技能、新增项目工作区模板、新增场景工作流。
 - Major：破坏性修改输出结构或团队工作规范。
 
-当前版本：`0.4.1`
+当前版本：`0.4.2`
 
 ## Git 规则
 

@@ -30,7 +30,7 @@ AGENTS.md                               # 本仓库的智能体协作规范
 
 ## 当前版本
 
-插件版本：`0.4.1`
+插件版本：`0.4.2`
 
 主要能力：
 
@@ -45,7 +45,7 @@ AGENTS.md                               # 本仓库的智能体协作规范
 在本仓库根目录执行：
 
 ```bash
-codex plugin marketplace add /Users/linbiqiu/Documents/product
+codex plugin marketplace add "$(pwd)"
 codex plugin add pm-superpowers@pm-superpowers-internal
 ```
 
@@ -65,35 +65,35 @@ codex plugin add pm-superpowers@pm-superpowers-internal
 如果插件开发人员需要更新底层 PM 方法技能，先把认可来源同步到本地源目录，再运行：
 
 ```bash
-python3 /Users/linbiqiu/Documents/product/plugins/pm-superpowers/scripts/sync_pm_skills.py
+python3 plugins/pm-superpowers/scripts/sync_pm_skills.py
 ```
 
 同步后必须运行插件校验和所有技能校验，再发版给团队。
 
 ## 重要文档
 
-- [使用手册](/Users/linbiqiu/Documents/product/docs/pm-superpowers/PM_SUPERPOWERS_USER_GUIDE.md)
-- [下载安装和使用指南](/Users/linbiqiu/Documents/product/docs/pm-superpowers/PM_SUPERPOWERS_INSTALL_AND_USAGE.md)
-- [高频场景深度手册](/Users/linbiqiu/Documents/product/docs/pm-superpowers/PM_SUPERPOWERS_SCENARIO_DEEP_DIVE.md)
-- [插件设计说明](/Users/linbiqiu/Documents/product/docs/pm-superpowers/PM_SUPERPOWERS_PLUGIN_DESIGN.md)
-- [技能说明书](/Users/linbiqiu/Documents/product/docs/pm-superpowers/PM_SUPERPOWERS_SKILL_MANUAL.md)
-- [PM skills 内置策略](/Users/linbiqiu/Documents/product/docs/pm-superpowers/PM_SKILLS_BUNDLING_STRATEGY.md)
-- [产品项目工作区指南](/Users/linbiqiu/Documents/product/docs/pm-superpowers/PM_PROJECT_WORKSPACE_GUIDE.md)
-- [内部发版指南](/Users/linbiqiu/Documents/product/docs/pm-superpowers/PM_SUPERPOWERS_RELEASE_GUIDE.md)
+- [使用手册](docs/pm-superpowers/PM_SUPERPOWERS_USER_GUIDE.md)
+- [下载安装和使用指南](docs/pm-superpowers/PM_SUPERPOWERS_INSTALL_AND_USAGE.md)
+- [高频场景深度手册](docs/pm-superpowers/PM_SUPERPOWERS_SCENARIO_DEEP_DIVE.md)
+- [插件设计说明](docs/pm-superpowers/PM_SUPERPOWERS_PLUGIN_DESIGN.md)
+- [技能说明书](docs/pm-superpowers/PM_SUPERPOWERS_SKILL_MANUAL.md)
+- [PM skills 内置策略](docs/pm-superpowers/PM_SKILLS_BUNDLING_STRATEGY.md)
+- [产品项目工作区指南](docs/pm-superpowers/PM_PROJECT_WORKSPACE_GUIDE.md)
+- [内部发版指南](docs/pm-superpowers/PM_SUPERPOWERS_RELEASE_GUIDE.md)
 
 ## 校验
 
 插件校验：
 
 ```bash
-python3 /Users/linbiqiu/.codex/skills/.system/plugin-creator/scripts/validate_plugin.py /Users/linbiqiu/Documents/product/plugins/pm-superpowers
+python3 "${CODEX_HOME:-$HOME/.codex}/skills/.system/plugin-creator/scripts/validate_plugin.py" plugins/pm-superpowers
 ```
 
 技能校验：
 
 ```bash
-for d in /Users/linbiqiu/Documents/product/plugins/pm-superpowers/skills/*; do
-  python3 /Users/linbiqiu/.codex/skills/.system/skill-creator/scripts/quick_validate.py "$d"
+for d in plugins/pm-superpowers/skills/*; do
+  python3 "${CODEX_HOME:-$HOME/.codex}/skills/.system/skill-creator/scripts/quick_validate.py" "$d"
 done
 ```
 

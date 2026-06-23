@@ -1002,7 +1002,7 @@ Data / Permission Rules
 
 ## 圆桌评审后的修正
 
-详见：[PM_PLUGIN_ROUNDTABLE_REVIEW.md](/Users/linbiqiu/Documents/product/PM_PLUGIN_ROUNDTABLE_REVIEW.md)
+详见：[PM_PLUGIN_ROUNDTABLE_REVIEW.md](PM_PLUGIN_ROUNDTABLE_REVIEW.md)
 
 圆桌评审后，需要对本插件方案做一个重要修正：十个高频 PM 场景适合作为“用户学习层”和“场景入口”，但不应该直接等同于插件的完整技能结构。真正可靠的插件还需要一组横切流程控制技能。
 

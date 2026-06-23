@@ -73,7 +73,7 @@ pm-superpowers
 适合试点或同一台机器验证：
 
 ```bash
-codex plugin marketplace add /Users/linbiqiu/Documents/product
+codex plugin marketplace add "$(pwd)"
 codex plugin add pm-superpowers@pm-superpowers-internal
 ```
 
@@ -112,7 +112,7 @@ codex plugin add pm-superpowers@pm-superpowers-internal
 开发人员先把认可来源同步到本地源目录，默认源目录是：
 
 ```text
-/Users/linbiqiu/Documents/product/.codex/skills
+<repo-root>/.codex/skills
 ```
 
 然后在仓库根目录运行：
@@ -134,14 +134,14 @@ python3 plugins/pm-superpowers/scripts/sync_pm_skills.py --source /path/to/appro
 插件校验：
 
 ```bash
-python3 /Users/linbiqiu/.codex/skills/.system/plugin-creator/scripts/validate_plugin.py /Users/linbiqiu/Documents/product/plugins/pm-superpowers
+python3 "${CODEX_HOME:-$HOME/.codex}/skills/.system/plugin-creator/scripts/validate_plugin.py" plugins/pm-superpowers
 ```
 
 技能校验：
 
 ```bash
-for d in /Users/linbiqiu/Documents/product/plugins/pm-superpowers/skills/*; do
-  python3 /Users/linbiqiu/.codex/skills/.system/skill-creator/scripts/quick_validate.py "$d"
+for d in plugins/pm-superpowers/skills/*; do
+  python3 "${CODEX_HOME:-$HOME/.codex}/skills/.system/skill-creator/scripts/quick_validate.py" "$d"
 done
 ```
 
@@ -154,7 +154,7 @@ done
 - `1.0.0`：团队正式采用，流程稳定。
 - `2.0.0`：产物结构或工作流有破坏性变化。
 
-当前已进入 `0.4.1` 试点版本。`0.4.0` 重点把 68 个 PM 方法技能内置到插件包内，让团队成员只安装 PM Superpowers 即可使用完整产品工作流；`0.4.1` 补充了用户下载安装和首次使用指南，并整理了文档目录说明。
+当前已进入 `0.4.2` 试点版本。`0.4.0` 重点把 68 个 PM 方法技能内置到插件包内，让团队成员只安装 PM Superpowers 即可使用完整产品工作流；`0.4.1` 补充了用户下载安装和首次使用指南，并整理了文档目录说明；`0.4.2` 修正了 GitHub 文档中的本机绝对路径。
 
 ## 试点建议
 

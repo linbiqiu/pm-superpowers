@@ -437,7 +437,7 @@
 项目内技能文件位于：
 
 ```text
-/Users/linbiqiu/Documents/product/.codex/skills
+<repo-root>/.codex/skills
 ```
 
 查看已安装插件：

@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.4.2
+
+- 修正 GitHub 文档中的本机绝对路径，统一改为相对链接、`<repo-root>`、`$(pwd)` 或 `${CODEX_HOME:-$HOME/.codex}`。
+- 修复 planning 文档中指向本机路径的 Markdown 链接。
+- 更新 README、AGENTS、发版指南、审计文档和用户手册中的路径示例。
+
 ## 0.4.1
 
 - 新增用户下载安装和使用指南，覆盖 GitHub 安装、本地安装、更新和首次使用。
