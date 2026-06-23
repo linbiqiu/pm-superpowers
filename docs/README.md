@@ -9,6 +9,7 @@
 这里是给团队用户、产品经理、插件维护者直接阅读的正式文档。优先从下面几份开始：
 
 - `PM_SUPERPOWERS_INSTALL_AND_USAGE.md`：下载、安装、更新和第一次使用。
+- `PM_SUPERPOWERS_FEISHU_INTERNAL_GUIDE.md`：适合复制/导入飞书云文档的内部传播介绍，覆盖安装、使用和高频场景。
 - `PM_SUPERPOWERS_UPDATE_GUIDE.md`：检查版本、更新插件和团队通知方式。
 - `PM_SUPERPOWERS_USER_GUIDE.md`：按场景使用 PM Superpowers。
 - `PM_SUPERPOWERS_SCENARIO_DEEP_DIVE.md`：十个高频产品场景的深入说明。
