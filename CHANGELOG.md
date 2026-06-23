@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.4.0
+
+- 将 68 个 PM method skills 内置到 PM Superpowers 插件包内。
+- 新增 `scripts/sync_pm_skills.py`，支持开发者从认可来源同步底层方法技能。
+- 更新 README、插件设计说明、技能说明书、内部发版指南和运行时 reference，明确用户只需安装 PM Superpowers。
+- 新增 `PM_SKILLS_BUNDLING_STRATEGY.md`，说明内置策略、更新流程、版本规则和重复安装处理。
+
 ## 0.3.0
 
 - 新增 `pm-project-initializer` 技能。

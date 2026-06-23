@@ -1,22 +1,32 @@
-# Existing 68 PM Skills as the Method Library
+# 内置 68 个 PM 方法技能
 
-PM Superpowers does not replace the existing 68 PM skills. It treats them as the bottom-layer method library and adds four missing layers on top:
+PM Superpowers 内置 68 个 PM 方法技能作为底层方法库。终端用户只需要安装 PM Superpowers 插件，不需要额外安装 `pm-skills` 插件集。
 
-1. Scene routing: decide which workflow applies.
-2. Workflow sequencing: combine multiple method skills into a complete PM workflow.
-3. Gates: block premature output when core thinking is missing.
-4. Handoff standards: prepare artifacts for UI and engineering agents.
+PM Superpowers 不把 68 个方法技能重写成一个大技能，而是保留它们的原子能力，并在上层补齐四件事：
 
-When a step names one of these existing skills and the skill is available, use it. If the skill is unavailable in a future environment, follow the workflow and produce a compatible artifact from the templates.
+1. 场景路由：判断当前请求应该进入哪个产品工作流。
+2. 工作流编排：把多个方法技能组合成完整 PM 工作流。
+3. 门禁治理：当核心问题没想清楚时阻断，不强行输出完整文档。
+4. 下游交接：把产物整理到 UI 和研发智能体可以继续工作的程度。
 
-## Handling Strategy for the 68 Skills
+当场景步骤需要某个方法技能时，优先使用插件内置的同名技能。如果未来环境里某个方法技能不可用，仍要按照场景工作流和中文模板产出兼容结果，并说明能力缺口。
+
+## 68 个技能的处理策略
 
 | Treatment | Meaning |
 | --- | --- |
-| Keep as-is | The skill remains an atomic PM method and can be invoked directly. |
-| Orchestrate | PM Superpowers calls or references the skill as one step in a scenario workflow. |
-| Govern | PM Superpowers checks the skill's output with evidence, gate, and handoff rules. |
-| Extend only if missing | New PM Superpowers skills cover workflow gaps, not duplicate method logic. |
+| 原样保留 | 方法技能仍然是一个独立的 PM 原子方法，可以被直接触发。 |
+| 场景编排 | PM Superpowers 在具体场景中选择和组合这些方法技能。 |
+| 门禁治理 | PM Superpowers 用证据、门禁、交接规则检查方法技能产物。 |
+| 缺口扩展 | 只有缺少场景流、门禁、模板或交接标准时，才新增 PM Superpowers 技能。 |
+
+## 更新策略
+
+- 终端用户不需要关心 68 个方法技能的安装。
+- 插件开发人员通过 `plugins/pm-superpowers/scripts/sync_pm_skills.py` 从认可来源同步 68 个方法技能；同步脚本会自动注入中文输出要求。
+- 同步后必须运行插件校验和全部技能校验。
+- 如果新增的是独立产品方法，先进入 PM 方法技能清单，再同步到插件。
+- 如果新增的是公司场景、流程、门禁、模板或下游交接标准，直接更新 PM Superpowers 的场景/治理层。
 
 ## Product Discovery
 

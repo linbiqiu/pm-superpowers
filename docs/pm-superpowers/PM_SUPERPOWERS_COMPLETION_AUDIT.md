@@ -2,6 +2,10 @@
 
 审计日期：2026-06-22
 
+更新日期：2026-06-23
+
+2026-06-23 更新：PM Superpowers 从 `0.3.0` 升级到 `0.4.0`，68 个 PM method skills 已改为随插件内置发布。团队成员只需要安装 PM Superpowers 一个插件；插件开发人员通过同步脚本维护底层方法技能快照。
+
 ## 目标拆解
 
 本轮目标来自完整产品工作流插件建设要求，包含：
@@ -32,10 +36,10 @@
 
 处理策略：
 
-- 不复制。
+- 随 PM Superpowers 插件内置发布。
 - 不重写。
-- 不替换。
-- 作为底层产品方法库保留。
+- 不合并成一个大技能。
+- 作为底层产品方法库快照保留。
 - 由 PM Superpowers 进行场景化编排和治理。
 
 ### PM Superpowers 插件
@@ -72,7 +76,9 @@ pm-superpowers
 
 ### 插件技能
 
-共 18 个：
+共 86 个：
+
+18 个 PM Superpowers 场景/治理技能：
 
 - `pm-workflow-router`
 - `pm-intake-triage`
@@ -92,6 +98,8 @@ pm-superpowers
 - `strategy-business-model`
 - `launch-readiness`
 - `pm-operations`
+
+68 个内置 PM method skills 位于同一 `skills/` 目录中，例如 `create-prd`、`market-sizing`、`ab-test-analysis`、`user-stories`、`gtm-strategy`。
 
 ### 运行时 References
 
@@ -153,7 +161,8 @@ pm-superpowers
 - `PM_SUPERPOWERS_USER_GUIDE.md`：面向 PM 的十个场景化使用手册。
 - `PM_SUPERPOWERS_SCENARIO_DEEP_DIVE.md`：十个高频场景的深度讲解、门禁、工作流和落地训练说明。
 - `PM_SUPERPOWERS_PLUGIN_DESIGN.md`：插件设计理念、架构、门禁和下游串联说明。
-- `PM_SUPERPOWERS_SKILL_MANUAL.md`：18 个插件技能和 68 个底层 PM skills 的关系说明。
+- `PM_SUPERPOWERS_SKILL_MANUAL.md`：18 个场景/治理技能和 68 个内置 PM method skills 的关系说明。
+- `PM_SKILLS_BUNDLING_STRATEGY.md`：68 个 PM method skills 的内置策略、同步方式和重复安装处理。
 - `PM_PROJECT_WORKSPACE_GUIDE.md`：产品项目工作区、AGENTS.md、决策记录和项目记忆使用说明。
 - `PM_SUPERPOWERS_RELEASE_GUIDE.md`：内部团队发版、安装、升级和维护方式。
 - `PM_SUPERPOWERS_COMPLETION_AUDIT.md`：本完成审计。
@@ -201,10 +210,10 @@ codex plugin list
 ## 已验证结果
 
 - 插件校验通过。
-- 18 个技能全部通过 `quick_validate`。
-- `pm-skills` marketplace 中 9 个 PM 插件集处于 installed/enabled。
+- 86 个技能全部通过 `quick_validate`。
+- 68 个 PM method skills 已随 PM Superpowers 插件内置；团队用户不再需要单独安装外部 `pm-skills` 插件集。
 - `pm-superpowers@pm-superpowers-internal` 处于 installed/enabled。
-- 插件版本为 `0.3.0`。
+- 插件版本为 `0.4.0`。
 
 ## 内部发版方式
 
@@ -236,6 +245,6 @@ codex plugin add pm-superpowers@pm-superpowers-internal
 - 支持初始化产品项目工作区和标准 `AGENTS.md`。
 - 有下游 UI/研发交接标准。
 - 有用户学习文档和内部发版文档。
-- 已明确 68 个 PM skills 的保留和编排策略。
+- 已明确 68 个 PM method skills 的内置、同步和编排策略。
 
 后续迭代重点应放在团队试点反馈、公司专属模板、真实案例库和与 UI/研发插件的联调上。

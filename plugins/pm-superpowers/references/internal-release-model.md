@@ -15,21 +15,22 @@ This keeps the plugin close to the team's product operating system and allows ve
 
 ## Relationship To Existing PM Skills
 
-The existing 68 PM skills should be distributed as the team's PM method library. PM Superpowers should depend on that library operationally, not copy it:
+The existing 68 PM skills are bundled into PM Superpowers as the team's PM method library snapshot. Keep the logical layers separate even though they ship in one plugin:
 
-- Keep `pm-skills` installed as the bottom-layer method plugin set.
-- Keep PM Superpowers as the workflow orchestration plugin.
-- When a new PM method is needed, add it to the PM skills library if it is an atomic method.
+- Ship one plugin to end users: `pm-superpowers`.
+- Keep the 68 PM method skills as independent skill folders, not a merged mega-skill.
+- Keep PM Superpowers scenario and governance skills as the workflow orchestration layer.
+- When a new PM method is needed, add it to the approved PM method skill list if it is an atomic method, then sync it into the plugin.
 - When a new scenario or governance rule is needed, add it to PM Superpowers.
+- Use `plugins/pm-superpowers/scripts/sync_pm_skills.py` to refresh the bundled method skills from the approved source.
 
 ## Internal Installation Flow
 
 For each team member:
 
-1. Install the existing PM skills marketplace or plugin set used by the team.
-2. Add the internal PM Superpowers marketplace.
-3. Install `pm-superpowers` from that marketplace.
-4. Start a new Codex thread so the newly installed skills are loaded.
+1. Add the internal PM Superpowers marketplace.
+2. Install `pm-superpowers` from that marketplace.
+3. Start a new Codex thread so the newly installed skills are loaded.
 
 Example commands:
 

@@ -27,4 +27,4 @@ The plugin should block when:
 - Assumptions and evidence are separated.
 - The next step is explicit.
 - Handoff readiness is not claimed unless the required fields are present.
-- Existing PM skills are referenced as supporting methods, not duplicated.
+- Bundled PM method skills are used as supporting methods, while PM Superpowers remains responsible for routing, gates, templates, and handoff quality.

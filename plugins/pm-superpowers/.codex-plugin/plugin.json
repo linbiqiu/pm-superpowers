@@ -1,7 +1,7 @@
 {
   "name": "pm-superpowers",
-  "version": "0.3.0",
-  "description": "面向中国团队的场景化产品经理工作流插件。用于识别 PM 场景、编排产品技能、执行门禁检查、输出中文标准产物，初始化产品项目工作区，并衔接 UI 与研发工作流。",
+  "version": "0.4.0",
+  "description": "面向中国团队的场景化产品经理工作流插件。内置 68 个 PM 方法技能和 18 个场景/治理技能，用于识别 PM 场景、编排产品技能、执行门禁检查、输出中文标准产物，初始化产品项目工作区，并衔接 UI 与研发工作流。",
   "author": {
     "name": "Product Platform Team"
   },
@@ -16,8 +16,8 @@
   "skills": "./skills/",
   "interface": {
     "displayName": "PM Superpowers",
-    "shortDescription": "中文产品经理场景工作流：探索、PRD、路线图、指标、上线和协作运营。",
-    "longDescription": "PM Superpowers 把现有 PM skills 方法库编排成适合中国团队使用的场景化产品工作流。它会先判断用户处在哪个产品场景，再选择合适技能流，执行证据分类和门禁检查，输出中文标准产物；也可以初始化产品项目工作区，生成 AGENTS.md、产品上下文、决策记录、风险清单和交接材料，准备衔接 UI 智能体和研发智能体。",
+    "shortDescription": "中文产品经理场景工作流，内置 PM 方法库：探索、PRD、路线图、指标、上线和协作运营。",
+    "longDescription": "PM Superpowers 把 68 个 PM 方法技能内置为底层方法库，并在其上提供适合中国团队使用的场景化产品工作流。它会先判断用户处在哪个产品场景，再选择合适技能流，执行证据分类和门禁检查，输出中文标准产物；也可以初始化产品项目工作区，生成 AGENTS.md、产品上下文、决策记录、风险清单和交接材料，准备衔接 UI 智能体和研发智能体。终端用户只需要安装 PM Superpowers 插件，不需要额外安装 pm-skills 插件集。",
     "developerName": "Product Platform Team",
     "category": "Productivity",
     "capabilities": [

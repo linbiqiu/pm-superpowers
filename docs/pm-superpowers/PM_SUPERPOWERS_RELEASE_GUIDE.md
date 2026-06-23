@@ -7,31 +7,35 @@
 
 ## 现有 68 个 PM skills 怎么处理
 
-结论：保留为底层方法库，不复制、不重写、不塞进一个大技能里。
+结论：随 PM Superpowers 插件内置发布，作为底层方法库快照；逻辑上仍然保持“方法库”和“工作流插件”分层，不重写、不合并成一个大技能。
 
 原因：
 
 - 68 个 skills 已经覆盖很多产品方法，如 PRD、用户研究、市场分析、实验、GTM、路线图等。
 - 它们适合做单点方法，但不负责判断场景和流程顺序。
-- 如果复制到新插件里，会产生两份维护源，后续版本容易冲突。
+- 如果让终端用户额外安装一组 `pm-skills` 插件，会增加试点和推广成本，也更容易出现“装了 PM Superpowers 但底层方法缺失”的问题。
+- 内置快照可以让用户只安装一个插件，同时由插件开发人员集中同步和发版。
 - PM Superpowers 要解决的是“怎么选、怎么串、怎么检查、怎么交接”。
 
 推荐分工：
 
 | 层级 | 负责内容 | 示例 |
 | --- | --- | --- |
-| PM skills 方法库 | 原子产品方法 | `create-prd`、`market-sizing`、`ab-test-analysis` |
-| PM Superpowers | 场景工作流和门禁 | `new-product-discovery`、`prd-standardization`、`downstream-readiness` |
+| PM method skills 方法库 | 原子产品方法，随插件内置 | `create-prd`、`market-sizing`、`ab-test-analysis` |
+| PM Superpowers 场景层 | 场景工作流和门禁 | `new-product-discovery`、`prd-standardization`、`downstream-readiness` |
 | 团队文档 | 学习材料和公司规范 | 场景手册、发版指南、模板说明 |
 
 ## 团队安装前置
 
-团队成员需要两类能力：
+团队成员只需要安装 PM Superpowers 插件。
 
-- 已安装团队认可的 PM skills 插件集。
-- 安装 PM Superpowers 插件。
+不再要求团队成员单独安装 `pm-skills` 插件集。68 个底层 PM 方法技能已经位于：
 
-如果团队未来把 PM skills 和 PM Superpowers 放在同一个内部 marketplace，也可以统一安装；但逻辑上仍然建议保持“方法库”和“工作流插件”分层。
+```text
+plugins/pm-superpowers/skills/
+```
+
+如果某位开发者本机同时安装了外部 `pm-skills` 插件集，可能在技能列表里看到重复的同名方法技能。团队正式推广时建议只启用 PM Superpowers，避免同名技能重复展示。
 
 ## 当前项目内插件位置
 
@@ -40,9 +44,10 @@
 ```text
 plugins/pm-superpowers/
   .codex-plugin/plugin.json
-  skills/
+  skills/                 # 18 个场景/治理技能 + 68 个内置 PM 方法技能
   references/
   assets/templates/
+  scripts/sync_pm_skills.py
 
 .agents/plugins/marketplace.json
 ```
@@ -94,12 +99,35 @@ codex plugin add pm-superpowers@pm-superpowers-internal
 每次更新插件时建议按这个流程：
 
 1. 修改技能、references、templates 或文档。
-2. 运行插件校验。
-3. 运行所有技能校验。
-4. 更新 `plugins/pm-superpowers/.codex-plugin/plugin.json` 的版本号。
-5. 提交到内部仓库。
-6. 通知团队更新插件。
-7. 团队成员重新安装或更新后，新开一个 Codex thread 使用。
+2. 如果更新了底层 PM 方法技能，先运行 `plugins/pm-superpowers/scripts/sync_pm_skills.py`。
+3. 运行插件校验。
+4. 运行所有技能校验。
+5. 更新 `plugins/pm-superpowers/.codex-plugin/plugin.json` 的版本号。
+6. 提交到内部仓库。
+7. 通知团队更新插件。
+8. 团队成员重新安装或更新后，新开一个 Codex thread 使用。
+
+## 更新底层 68 个 PM 方法技能
+
+开发人员先把认可来源同步到本地源目录，默认源目录是：
+
+```text
+/Users/linbiqiu/Documents/product/.codex/skills
+```
+
+然后在仓库根目录运行：
+
+```bash
+python3 plugins/pm-superpowers/scripts/sync_pm_skills.py
+```
+
+如果源目录不在默认位置，可以指定：
+
+```bash
+python3 plugins/pm-superpowers/scripts/sync_pm_skills.py --source /path/to/approved-pm-skills
+```
+
+同步脚本只覆盖批准清单中的 68 个 PM 方法技能，不会覆盖 PM Superpowers 自身的场景/治理技能。同步时还会自动给每个方法技能注入中文输出要求，确保这些底层技能随 PM Superpowers 发布后默认遵循中文产物标准。
 
 ## 校验命令
 
@@ -126,7 +154,7 @@ done
 - `1.0.0`：团队正式采用，流程稳定。
 - `2.0.0`：产物结构或工作流有破坏性变化。
 
-当前已进入 `0.3.0` 试点版本，重点补齐了中文输出规范、中文模板、面向用户的深度场景手册，以及产品项目工作区初始化能力。
+当前已进入 `0.4.0` 试点版本，重点把 68 个 PM 方法技能内置到插件包内，让团队成员只安装 PM Superpowers 即可使用完整产品工作流。
 
 ## 试点建议
 
@@ -144,9 +172,9 @@ done
 - PRD 和交接材料是否减少设计、研发返工。
 - 哪些公司专属规范需要加入 references。
 
-## 什么时候更新 68 个 PM skills
+## 什么时候更新 68 个 PM 方法技能
 
-如果新增的是一个独立产品方法，更新 PM skills：
+如果新增的是一个独立产品方法，更新底层 PM 方法技能清单，然后同步到 PM Superpowers：
 
 - 新的定价方法。
 - 新的竞品分析方法。
@@ -168,5 +196,5 @@ done
 PM Superpowers 是我们的产品工作流插件。
 它不会替代大家的判断，而是把高频产品场景、标准产物、门禁和交接要求固化下来。
 新同事可以按场景学习，老同事可以用它统一输出标准。
-现有 68 个 PM skills 仍然作为底层方法库，新插件负责编排这些方法。
+68 个 PM 方法技能已经内置在插件里，大家只需要安装 PM Superpowers 一个插件。
 ```
