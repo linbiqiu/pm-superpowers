@@ -16,7 +16,10 @@ import urllib.request
 repo = sys.argv[1]
 ref = sys.argv[2]
 
-repo = repo.removeprefix("https://github.com/")
+if repo.startswith("https://github.com/"):
+    repo = repo.removeprefix("https://github.com/")
+elif repo.startswith("git@github.com:"):
+    repo = repo.removeprefix("git@github.com:")
 repo = repo.removesuffix(".git")
 path = "plugins/pm-superpowers/.codex-plugin/plugin.json"
 url = f"https://api.github.com/repos/{repo}/contents/{path}?ref={ref}"
@@ -50,8 +53,37 @@ echo "远程版本：${remote_version}"
 if [[ "${local_base_version}" == "${remote_version}" ]]; then
   echo "状态：已是最新正式版本。"
 else
-  echo "状态：发现新版本，需要更新。"
-  echo
-  echo "更新命令："
-  echo "  scripts/update_pm_superpowers.sh"
+  comparison="$(
+    python3 - "$local_base_version" "$remote_version" <<'PY'
+import re
+import sys
+
+def parts(version: str) -> list[int]:
+    return [int(x) for x in re.findall(r"\d+", version)]
+
+local = parts(sys.argv[1])
+remote = parts(sys.argv[2])
+length = max(len(local), len(remote))
+local += [0] * (length - len(local))
+remote += [0] * (length - len(remote))
+
+if local < remote:
+    print("older")
+elif local > remote:
+    print("newer")
+else:
+    print("different")
+PY
+  )"
+
+  if [[ "${comparison}" == "older" ]]; then
+    echo "状态：发现新版本，需要更新。"
+    echo
+    echo "更新命令："
+    echo "  scripts/update_pm_superpowers.sh"
+  elif [[ "${comparison}" == "newer" ]]; then
+    echo "状态：本地版本高于远程版本，通常说明你正在使用本地开发版或远程尚未同步。"
+  else
+    echo "状态：本地版本和远程版本不同，请检查是否为预发布或本地构建版本。"
+  fi
 fi

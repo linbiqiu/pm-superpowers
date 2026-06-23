@@ -103,6 +103,12 @@ scripts/update_pm_superpowers.sh
 
 更新完成后请新开一个 Codex thread。
 
+如果 GitHub HTTPS 连接不稳定，但 SSH 可以访问 GitHub：
+
+```bash
+PM_SUPERPOWERS_REPO=git@github.com:linbiqiu/pm-superpowers.git scripts/update_pm_superpowers.sh
+```
+
 如果你是从 GitHub marketplace 安装的：
 
 ```bash

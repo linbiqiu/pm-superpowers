@@ -16,6 +16,10 @@
 
 2026-06-23 六次更新：PM Superpowers 从 `0.4.4` 升级到 `0.4.5`，版本检查脚本改用 GitHub API，避免 raw CDN 缓存导致远程版本识别滞后。
 
+2026-06-23 七次更新：PM Superpowers 从 `0.4.5` 升级到 `0.4.6`，修复更新脚本的 marketplace 检测逻辑，并补充 SSH 仓库源更新方式。
+
+2026-06-23 八次更新：PM Superpowers 从 `0.4.6` 升级到 `0.4.7`，优化本地开发版和本地 marketplace 场景下的更新提示。
+
 ## 目标拆解
 
 本轮目标来自完整产品工作流插件建设要求，包含：
@@ -225,7 +229,7 @@ codex plugin list
 - 86 个技能全部通过 `quick_validate`。
 - 68 个 PM method skills 已随 PM Superpowers 插件内置；团队用户不再需要单独安装外部 `pm-skills` 插件集。
 - `pm-superpowers@pm-superpowers-internal` 处于 installed/enabled。
-- 插件版本为 `0.4.5`。
+- 插件版本为 `0.4.7`。
 
 ## 内部发版方式
 

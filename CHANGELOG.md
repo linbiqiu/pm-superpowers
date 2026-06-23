@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.4.7
+
+- 优化版本检查脚本：本地版本高于远程版本时不再提示需要更新。
+- 优化更新脚本：本地 marketplace 场景下跳过 Git 快照刷新，避免输出误导性的错误信息。
+
+## 0.4.6
+
+- 修复更新脚本的 marketplace 检测逻辑，按 `codex plugin marketplace list` 表格第一列识别 marketplace。
+- 版本检查脚本支持 `git@github.com:owner/repo.git` 形式的 SSH 仓库地址。
+- 更新指南补充 GitHub HTTPS 不稳定时使用 SSH 源的更新方式。
+
 ## 0.4.5
 
 - 修复版本检查脚本，改用 GitHub API 读取远程 `plugin.json`，避免 `raw.githubusercontent.com` CDN 缓存导致版本识别滞后。

@@ -11,7 +11,7 @@ echo "来源：${REPO}@${REF}"
 echo
 
 if codex plugin marketplace list >/tmp/pm-superpowers-marketplaces.txt 2>/tmp/pm-superpowers-marketplaces.err; then
-  if ! grep -q "Marketplace \`${MARKETPLACE}\`" /tmp/pm-superpowers-marketplaces.txt; then
+  if ! awk '{print $1}' /tmp/pm-superpowers-marketplaces.txt | grep -qx "${MARKETPLACE}"; then
     echo "未发现 marketplace：${MARKETPLACE}"
     echo "正在添加 marketplace..."
     codex plugin marketplace add "${REPO}" --ref "${REF}"
@@ -26,7 +26,14 @@ fi
 
 echo
 echo "刷新 marketplace 快照..."
-codex plugin marketplace upgrade "${MARKETPLACE}" || true
+upgrade_output="$(codex plugin marketplace upgrade "${MARKETPLACE}" 2>&1 || true)"
+if [[ -n "${upgrade_output}" ]]; then
+  if grep -q "not configured as a Git marketplace" <<<"${upgrade_output}"; then
+    echo "当前 marketplace 不是 Git marketplace，跳过快照刷新。"
+  else
+    echo "${upgrade_output}"
+  fi
+fi
 
 echo
 echo "重新安装插件..."

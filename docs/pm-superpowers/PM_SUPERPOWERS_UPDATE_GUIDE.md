@@ -64,6 +64,12 @@ scripts/update_pm_superpowers.sh
 
 更新完成后，请新开 Codex thread。
 
+如果你的环境访问 GitHub HTTPS 不稳定，但 SSH 可以访问 GitHub，可以这样更新：
+
+```bash
+PM_SUPERPOWERS_REPO=git@github.com:linbiqiu/pm-superpowers.git scripts/update_pm_superpowers.sh
+```
+
 ## 手动更新
 
 如果你不想使用脚本，可以手动执行：
