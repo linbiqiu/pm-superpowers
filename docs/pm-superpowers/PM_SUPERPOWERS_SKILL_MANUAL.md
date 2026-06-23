@@ -49,6 +49,27 @@ PM Superpowers 的技能分两层：
 
 如果一开始信息不够，先走 `pm-intake-triage`。
 
+## PM method skills 直通契约
+
+内置 68 个 PM method skills 可以直接使用。用户明确点名某个方法技能或明确要求某个产品方法时，不强制套完整场景工作流。
+
+示例：
+
+```text
+直接用 market-sizing 帮我估算这个市场规模。
+用 ab-test-analysis 分析这组实验结果。
+帮我生成 interview-script。
+```
+
+直通规则：
+
+- 直接执行被点名的 PM method skill。
+- 默认遵循中文输出规范。
+- 不强制先走 S0-S10。
+- 如果直通结果要进入 PRD、路线图承诺、UI/研发交接或上线计划，再运行 `pm-gate-review` 或 `downstream-readiness`。
+
+这意味着 PM Superpowers 是方法技能的场景编排层，不是方法技能的替代品。
+
 ## 入口技能
 
 ### pm-workflow-router

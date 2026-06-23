@@ -20,6 +20,8 @@
 
 2026-06-23 八次更新：PM Superpowers 从 `0.4.6` 升级到 `0.4.7`，优化本地开发版和本地 marketplace 场景下的更新提示。
 
+2026-06-23 九次更新：PM Superpowers 从 `0.4.7` 升级到 `0.4.8`，新增行为回归契约和校验脚本，并补充 PM method skills 直通契约，保护 68 个底层方法技能不被场景层过度限制。
+
 ## 目标拆解
 
 本轮目标来自完整产品工作流插件建设要求，包含：
@@ -117,9 +119,10 @@ pm-superpowers
 
 ### 运行时 References
 
-共 9 份：
+共 10 份：
 
 - `chinese-output-standard.md`
+- `behavior-regression-cases.json`
 - `scene-taxonomy.md`
 - `supporting-pm-skills.md`
 - `gate-system.md`
@@ -217,6 +220,12 @@ for d in plugins/pm-superpowers/skills/*; do
 done
 ```
 
+行为回归契约校验：
+
+```bash
+python3 plugins/pm-superpowers/scripts/validate_behavior_regression.py
+```
+
 安装状态检查：
 
 ```bash
@@ -227,9 +236,10 @@ codex plugin list
 
 - 插件校验通过。
 - 86 个技能全部通过 `quick_validate`。
+- 行为回归契约校验通过。
 - 68 个 PM method skills 已随 PM Superpowers 插件内置；团队用户不再需要单独安装外部 `pm-skills` 插件集。
 - `pm-superpowers@pm-superpowers-internal` 处于 installed/enabled。
-- 插件版本为 `0.4.7`。
+- 插件版本为 `0.4.8`。
 
 ## 内部发版方式
 

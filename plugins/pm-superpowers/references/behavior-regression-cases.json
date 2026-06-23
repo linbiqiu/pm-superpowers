@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "description": "PM Superpowers behavior regression cases. These cases define routing, blocking, handoff, launch, and PM method skill passthrough contracts that must remain represented in plugin references and skills.",
+  "cases": [
+    {
+      "id": "vague-idea-must-not-go-directly-to-prd",
+      "user_prompt": "老板说我们也要做一个 AI 助手，帮我写 PRD。",
+      "expected_behavior": "The plugin should route to intake or discovery first, separate assumptions from evidence, and not produce an engineering-ready PRD.",
+      "acceptable_skills": [
+        "pm-workflow-router",
+        "pm-intake-triage",
+        "new-product-discovery"
+      ],
+      "forbidden_primary_skills": [
+        "prd-standardization",
+        "create-prd"
+      ],
+      "guardrail_sources": [
+        {
+          "path": "references/scene-taxonomy.md",
+          "contains": [
+            "If the request lacks product context",
+            "route to `pm-intake-triage`"
+          ]
+        },
+        {
+          "path": "skills/pm-workflow-router/SKILL.md",
+          "contains": [
+            "If the request is too vague, route to `pm-intake-triage`.",
+            "Do not produce a PRD"
+          ]
+        },
+        {
+          "path": "skills/new-product-discovery/SKILL.md",
+          "contains": [
+            "Block when target user, problem, or decision is unknown.",
+            "Do not produce a PRD until the problem gate passes"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "customer-request-must-not-be-copied-to-roadmap",
+      "user_prompt": "客户说一定要 Excel 导出，销售也说很重要，帮我排进路线图。",
+      "expected_behavior": "The plugin should classify evidence, recover the underlying user problem, and avoid treating the requested solution as a committed roadmap item without frequency or severity evidence.",
+      "acceptable_skills": [
+        "feedback-to-roadmap",
+        "evidence-classifier",
+        "prioritization-roadmap"
+      ],
+      "forbidden_primary_skills": [
+        "outcome-roadmap",
+        "prioritize-features"
+      ],
+      "guardrail_sources": [
+        {
+          "path": "skills/feedback-to-roadmap/SKILL.md",
+          "contains": [
+            "Separate solution requests from underlying user problems.",
+            "Block when feedback has no source, no user segment, or no evidence of frequency/severity"
+          ]
+        },
+        {
+          "path": "references/evidence-taxonomy.md",
+          "contains": [
+            "Do not convert user quotes into broad user needs unless a pattern is shown.",
+            "Treat stakeholder preference as Opinion"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "missing-acceptance-criteria-blocks-engineering-handoff",
+      "user_prompt": "这份 PRD 没写验收标准，但能不能先交给研发开做？",
+      "expected_behavior": "The plugin should run gate or downstream readiness and mark engineering handoff blocked when scope or acceptance criteria are missing.",
+      "acceptable_skills": [
+        "pm-gate-review",
+        "downstream-readiness",
+        "prd-standardization"
+      ],
+      "required_status": "BLOCKED",
+      "guardrail_sources": [
+        {
+          "path": "skills/downstream-readiness/SKILL.md",
+          "contains": [
+            "Do not mark engineering ready without acceptance criteria and scope.",
+            "Carry open questions forward instead of hiding them."
+          ]
+        },
+        {
+          "path": "references/gate-system.md",
+          "contains": [
+            "acceptance criteria",
+            "The handoff asks UI or engineering to build without scope, states, or acceptance criteria."
+          ]
+        },
+        {
+          "path": "references/downstream-handoff.md",
+          "contains": [
+            "Acceptance criteria",
+            "需要 PM 补充"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "missing-monitoring-and-rollback-blocks-launch",
+      "user_prompt": "功能明天上线，但还没有监控和回滚方案，帮我做上线计划。",
+      "expected_behavior": "The plugin should run launch readiness and block or carry named risk when monitoring or rollback is missing.",
+      "acceptable_skills": [
+        "launch-readiness",
+        "pm-gate-review"
+      ],
+      "required_status": "BLOCKED",
+      "guardrail_sources": [
+        {
+          "path": "skills/launch-readiness/SKILL.md",
+          "contains": [
+            "Identify risks and rollback plan.",
+            "Block when launch scope, target users, release owner, or monitoring plan is missing."
+          ]
+        },
+        {
+          "path": "assets/templates/launch-checklist.md",
+          "contains": [
+            "回滚方案",
+            "监控方式"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "explicit-method-skill-request-can-passthrough",
+      "user_prompt": "直接用 market-sizing 帮我估算这个市场规模，不要先套完整 PM Superpowers 场景流程。",
+      "expected_behavior": "The plugin should allow direct use of the named PM method skill. It should only add gate or downstream checks if the output becomes a roadmap commitment, PRD, handoff, or launch decision.",
+      "acceptable_skills": [
+        "market-sizing"
+      ],
+      "method_skill_passthrough": true,
+      "guardrail_sources": [
+        {
+          "path": "references/supporting-pm-skills.md",
+          "contains": [
+            "PM method skills 直通契约",
+            "用户明确点名某个底层方法技能",
+            "不强制套完整场景工作流"
+          ]
+        },
+        {
+          "path": "docs/pm-superpowers/PM_SKILLS_BUNDLING_STRATEGY.md",
+          "contains": [
+            "PM method skills 直通契约",
+            "只在输出要变成 PRD、路线图承诺、UI/研发交接或上线计划时"
+          ]
+        }
+      ]
+    }
+  ]
+}

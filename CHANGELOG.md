@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.4.8
+
+- 新增行为回归用例 `behavior-regression-cases.json`，覆盖模糊需求不直接进 PRD、客户请求不照单进路线图、缺验收标准不能交研发、缺监控回滚不能上线、PM method skills 允许直通。
+- 新增 `validate_behavior_regression.py`，用于发版前静态校验行为回归契约、方法技能 overlay 和直通契约是否仍然存在。
+- 补充 `PM method skills 直通契约`，明确用户点名底层方法技能时允许直接使用，只在进入 PRD、路线图承诺、UI/研发交接或上线计划时再加门禁。
+
 ## 0.4.7
 
 - 优化版本检查脚本：本地版本高于远程版本时不再提示需要更新。

@@ -32,6 +32,28 @@ PM Superpowers 应该默认内置底层 68 个 PM method skills。
 
 这样既保证用户安装简单，又保证架构上不混乱。
 
+## PM method skills 直通契约
+
+为了避免 PM Superpowers 的场景工作流限制底层方法技能，插件保留 PM method skills 的直通使用方式。
+
+当用户明确点名某个底层方法技能，或明确要求使用某个产品方法时，优先允许直接执行该方法技能。例如：
+
+```text
+直接用 market-sizing 帮我估算这个市场规模。
+用 ab-test-analysis 分析这组实验结果。
+帮我生成 interview-script。
+```
+
+直通时的规则：
+
+- 方法技能仍然使用自己的原子方法结构。
+- 输出默认遵循中文输出规范。
+- 不强制套完整场景工作流，不要求先经过 S0-S10。
+- 只在输出要变成 PRD、路线图承诺、UI/研发交接或上线计划时，再补 `pm-gate-review` 或 `downstream-readiness`。
+- 场景/治理技能不能把底层方法技能重写成更浅的同名替代品。
+
+这条契约保证高级 PM 可以直接调用方法工具，新人也可以通过 PM Superpowers 场景层获得流程保护。
+
 ## 当前插件结构
 
 ```text

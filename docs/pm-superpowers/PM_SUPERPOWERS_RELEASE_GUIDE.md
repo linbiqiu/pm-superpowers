@@ -100,13 +100,14 @@ codex plugin add pm-superpowers@pm-superpowers-internal
 
 1. 修改技能、references、templates 或文档。
 2. 如果更新了底层 PM 方法技能，先运行 `plugins/pm-superpowers/scripts/sync_pm_skills.py`。
-3. 运行插件校验。
-4. 运行所有技能校验。
-5. 更新 `plugins/pm-superpowers/.codex-plugin/plugin.json` 的版本号。
-6. 更新 `CHANGELOG.md`。
-7. 提交到内部仓库。
-8. 通知团队更新插件。
-9. 团队成员重新安装或更新后，新开一个 Codex thread 使用。
+3. 运行行为回归契约校验。
+4. 运行插件校验。
+5. 运行所有技能校验。
+6. 更新 `plugins/pm-superpowers/.codex-plugin/plugin.json` 的版本号。
+7. 更新 `CHANGELOG.md`。
+8. 提交到内部仓库。
+9. 通知团队更新插件。
+10. 团队成员重新安装或更新后，新开一个 Codex thread 使用。
 
 团队成员可使用一键脚本更新：
 
@@ -153,6 +154,12 @@ for d in plugins/pm-superpowers/skills/*; do
 done
 ```
 
+行为回归契约校验：
+
+```bash
+python3 plugins/pm-superpowers/scripts/validate_behavior_regression.py
+```
+
 ## 版本规则
 
 建议使用语义化版本：
@@ -162,7 +169,7 @@ done
 - `1.0.0`：团队正式采用，流程稳定。
 - `2.0.0`：产物结构或工作流有破坏性变化。
 
-当前已进入 `0.4.7` 试点版本。`0.4.0` 重点把 68 个 PM 方法技能内置到插件包内，让团队成员只安装 PM Superpowers 即可使用完整产品工作流；`0.4.1` 补充了用户下载安装和首次使用指南，并整理了文档目录说明；`0.4.2` 修正了 GitHub 文档中的本机绝对路径；`0.4.3` 将 PRD 模板升级为自适应结构；`0.4.4` 新增版本检查和一键更新机制；`0.4.5` 修复版本检查脚本的远程版本缓存问题；`0.4.6` 修复更新脚本的 marketplace 检测并补充 SSH 更新方式；`0.4.7` 优化本地版本高于远程和本地 marketplace 的提示。
+当前已进入 `0.4.8` 试点版本。`0.4.0` 重点把 68 个 PM 方法技能内置到插件包内，让团队成员只安装 PM Superpowers 即可使用完整产品工作流；`0.4.1` 补充了用户下载安装和首次使用指南，并整理了文档目录说明；`0.4.2` 修正了 GitHub 文档中的本机绝对路径；`0.4.3` 将 PRD 模板升级为自适应结构；`0.4.4` 新增版本检查和一键更新机制；`0.4.5` 修复版本检查脚本的远程版本缓存问题；`0.4.6` 修复更新脚本的 marketplace 检测并补充 SSH 更新方式；`0.4.7` 优化本地版本高于远程和本地 marketplace 的提示；`0.4.8` 新增行为回归契约校验，并明确 PM method skills 直通契约。
 
 ## 试点建议
 

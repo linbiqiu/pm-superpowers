@@ -31,12 +31,12 @@ AGENTS.md                               # 本仓库的智能体协作规范
 
 ## 当前版本
 
-插件版本：`0.4.7`
+插件版本：`0.4.8`
 
 主要能力：
 
 - 86 个插件技能：18 个 PM Superpowers 场景/治理技能，68 个内置 PM 方法技能。
-- 9 份运行时规范。
+- 10 份运行时规范和行为回归契约。
 - 14 份中文交付模板。
 - 1 套产品项目工作区初始化模板。
 - 9 份正式使用和维护文档。
@@ -104,6 +104,12 @@ python3 "${CODEX_HOME:-$HOME/.codex}/skills/.system/plugin-creator/scripts/valid
 for d in plugins/pm-superpowers/skills/*; do
   python3 "${CODEX_HOME:-$HOME/.codex}/skills/.system/skill-creator/scripts/quick_validate.py" "$d"
 done
+```
+
+行为回归契约校验：
+
+```bash
+python3 plugins/pm-superpowers/scripts/validate_behavior_regression.py
 ```
 
 ## 远程仓库发布

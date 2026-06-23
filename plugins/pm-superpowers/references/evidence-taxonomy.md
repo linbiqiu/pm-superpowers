@@ -32,6 +32,7 @@
 
 - Label every important claim.
 - Do not convert user quotes into broad user needs unless a pattern is shown.
+- Treat stakeholder preference as Opinion unless backed by data, customer evidence, or a tracked Commitment.
 - Do not hide assumptions inside polished PRD language.
 - If evidence is weak but action is still reasonable, mark the output `PASS_WITH_RISKS`.
 - If the plan depends on an unverified high-risk assumption, ask for validation before execution.
