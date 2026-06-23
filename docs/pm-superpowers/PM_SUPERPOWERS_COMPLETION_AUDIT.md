@@ -6,6 +6,8 @@
 
 2026-06-23 更新：PM Superpowers 从 `0.3.0` 升级到 `0.4.0`，68 个 PM method skills 已改为随插件内置发布。团队成员只需要安装 PM Superpowers 一个插件；插件开发人员通过同步脚本维护底层方法技能快照。
 
+2026-06-23 二次更新：PM Superpowers 从 `0.4.0` 升级到 `0.4.1`，补充用户下载安装和使用指南，并为 `docs/`、`docs/planning/` 增加目录说明。
+
 ## 目标拆解
 
 本轮目标来自完整产品工作流插件建设要求，包含：
@@ -159,6 +161,7 @@ pm-superpowers
 文档：
 
 - `PM_SUPERPOWERS_USER_GUIDE.md`：面向 PM 的十个场景化使用手册。
+- `PM_SUPERPOWERS_INSTALL_AND_USAGE.md`：面向用户的下载、安装、更新和首次使用指南。
 - `PM_SUPERPOWERS_SCENARIO_DEEP_DIVE.md`：十个高频场景的深度讲解、门禁、工作流和落地训练说明。
 - `PM_SUPERPOWERS_PLUGIN_DESIGN.md`：插件设计理念、架构、门禁和下游串联说明。
 - `PM_SUPERPOWERS_SKILL_MANUAL.md`：18 个场景/治理技能和 68 个内置 PM method skills 的关系说明。
@@ -213,7 +216,7 @@ codex plugin list
 - 86 个技能全部通过 `quick_validate`。
 - 68 个 PM method skills 已随 PM Superpowers 插件内置；团队用户不再需要单独安装外部 `pm-skills` 插件集。
 - `pm-superpowers@pm-superpowers-internal` 处于 installed/enabled。
-- 插件版本为 `0.4.0`。
+- 插件版本为 `0.4.1`。
 
 ## 内部发版方式
 

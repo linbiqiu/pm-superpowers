@@ -24,12 +24,13 @@ plugins/pm-superpowers/                 # Codex 插件源码
   assets/project-workspace/             # 用户项目初始化模板
 docs/pm-superpowers/                    # 用户、设计、发版和项目工作区文档
 docs/planning/                          # 早期规划和圆桌讨论材料
+docs/README.md                          # 文档目录说明
 AGENTS.md                               # 本仓库的智能体协作规范
 ```
 
 ## 当前版本
 
-插件版本：`0.4.0`
+插件版本：`0.4.1`
 
 主要能力：
 
@@ -37,7 +38,7 @@ AGENTS.md                               # 本仓库的智能体协作规范
 - 9 份运行时规范。
 - 14 份中文交付模板。
 - 1 套产品项目工作区初始化模板。
-- 7 份正式使用和维护文档。
+- 8 份正式使用和维护文档。
 
 ## 本地安装
 
@@ -72,6 +73,7 @@ python3 /Users/linbiqiu/Documents/product/plugins/pm-superpowers/scripts/sync_pm
 ## 重要文档
 
 - [使用手册](/Users/linbiqiu/Documents/product/docs/pm-superpowers/PM_SUPERPOWERS_USER_GUIDE.md)
+- [下载安装和使用指南](/Users/linbiqiu/Documents/product/docs/pm-superpowers/PM_SUPERPOWERS_INSTALL_AND_USAGE.md)
 - [高频场景深度手册](/Users/linbiqiu/Documents/product/docs/pm-superpowers/PM_SUPERPOWERS_SCENARIO_DEEP_DIVE.md)
 - [插件设计说明](/Users/linbiqiu/Documents/product/docs/pm-superpowers/PM_SUPERPOWERS_PLUGIN_DESIGN.md)
 - [技能说明书](/Users/linbiqiu/Documents/product/docs/pm-superpowers/PM_SUPERPOWERS_SKILL_MANUAL.md)

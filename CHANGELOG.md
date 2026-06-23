@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.4.1
+
+- 新增用户下载安装和使用指南，覆盖 GitHub 安装、本地安装、更新和首次使用。
+- 新增 `docs/README.md` 和 `docs/planning/README.md`，区分正式文档和规划过程材料。
+- 清理本地 `.DS_Store` 文件，减少目录干扰。
+
 ## 0.4.0
 
 - 将 68 个 PM method skills 内置到 PM Superpowers 插件包内。

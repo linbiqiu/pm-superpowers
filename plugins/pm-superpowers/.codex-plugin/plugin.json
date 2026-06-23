@@ -1,6 +1,6 @@
 {
   "name": "pm-superpowers",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "面向中国团队的场景化产品经理工作流插件。内置 68 个 PM 方法技能和 18 个场景/治理技能，用于识别 PM 场景、编排产品技能、执行门禁检查、输出中文标准产物，初始化产品项目工作区，并衔接 UI 与研发工作流。",
   "author": {
     "name": "Product Platform Team"
