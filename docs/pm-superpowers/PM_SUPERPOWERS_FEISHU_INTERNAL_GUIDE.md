@@ -436,6 +436,25 @@ PM Superpowers 是产品经理工作流助手，不是单纯的 PRD 生成器。
   <p><b>交接前检查：</b>如果你不能清楚回答“谁在什么场景下完成什么任务”“哪些规则不能变”“怎么验收算完成”，就还不适合交给 UI 或研发。</p>
 </callout>
 
+## 继续学习与改造适配
+
+如果只是日常使用，看完本文就够了。如果你想深入学习、参与团队适配，或者把这套工作流改造成更符合自己业务线的版本，可以继续看下面这些文档。
+
+项目入口：[PM Superpowers README](https://github.com/linbiqiu/pm-superpowers/blob/main/README.md)
+
+| 你想了解什么 | 推荐文档 |
+| --- | --- |
+| 第一次系统学习怎么用 | [使用手册](https://github.com/linbiqiu/pm-superpowers/blob/main/docs/pm-superpowers/PM_SUPERPOWERS_USER_GUIDE.md) |
+| 安装、更新、常见使用问题 | [下载安装和使用指南](https://github.com/linbiqiu/pm-superpowers/blob/main/docs/pm-superpowers/PM_SUPERPOWERS_INSTALL_AND_USAGE.md) / [更新指南](https://github.com/linbiqiu/pm-superpowers/blob/main/docs/pm-superpowers/PM_SUPERPOWERS_UPDATE_GUIDE.md) |
+| 深入理解 10 个高频产品场景 | [高频场景深度手册](https://github.com/linbiqiu/pm-superpowers/blob/main/docs/pm-superpowers/PM_SUPERPOWERS_SCENARIO_DEEP_DIVE.md) |
+| 了解插件为什么这样设计 | [插件设计说明](https://github.com/linbiqiu/pm-superpowers/blob/main/docs/pm-superpowers/PM_SUPERPOWERS_PLUGIN_DESIGN.md) |
+| 查看每个产品技能的作用 | [技能说明书](https://github.com/linbiqiu/pm-superpowers/blob/main/docs/pm-superpowers/PM_SUPERPOWERS_SKILL_MANUAL.md) |
+| 了解 68 个 PM skills 如何内置 | [PM skills 内置策略](https://github.com/linbiqiu/pm-superpowers/blob/main/docs/pm-superpowers/PM_SKILLS_BUNDLING_STRATEGY.md) |
+| 想按项目管理需求、决策和交接 | [产品项目工作区指南](https://github.com/linbiqiu/pm-superpowers/blob/main/docs/pm-superpowers/PM_PROJECT_WORKSPACE_GUIDE.md) |
+| 负责团队发版或内部维护 | [内部发版指南](https://github.com/linbiqiu/pm-superpowers/blob/main/docs/pm-superpowers/PM_SUPERPOWERS_RELEASE_GUIDE.md) |
+
+建议阅读顺序：先看“高频场景深度手册”，再看“技能说明书”；只有需要参与插件改造或内部发版的人，再看“插件设计说明”和“内部发版指南”。
+
 ## 常见问题
 
 ### 我需要记住场景编号吗？
